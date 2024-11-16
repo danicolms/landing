@@ -32,6 +32,13 @@ body {
   position: relative;
 }
 
+@media only screen and (max-width: 800px) {
+  .hero {
+    margin-top: 60px;
+    align-items: flex-start;
+  }
+}
+
 .hero-content {
   max-width: 600px;
   z-index: 2;
@@ -64,34 +71,37 @@ body {
 
 .illustrations-container {
   position: absolute;
-  right: 0;
+  right: -3%;
   top: 5%;
   transform: translateY(-50%);
-  width: 45%;
-  height: 80%;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   z-index: 1;
 }
 
+@media only screen and (max-width: 800px) {
+  .illustrations-container {  
+    rotate: 75deg;
+  }
+}
+
 .illustration {
-  background: #f0f0f0;
-  border-radius: 20px;
-  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
-  color: #666;
-  text-align: center;
 }
 
-.illustration-main {
-  height: 60%;
+.illustration img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-.illustration-secondary {
-  height: 40%;
-  opacity: 0.7;
+@media only screen and (max-width: 800px) {
+  .illustration img {  
+   object-fit: fill;
+  }
 }

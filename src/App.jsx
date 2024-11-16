@@ -54,20 +54,11 @@ function App() {
           transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
         >
           <motion.div 
-            className="illustration illustration-main"
+            className="illustration"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.5 }}
           >
-            <motion.img src="home-illustration.jpeg" alt="Cartoon sketched person pointing to the text" />
-          </motion.div>
-          
-          <motion.div 
-            className="illustration illustration-secondary"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.5 }}
-          >
-            Suggested: Simple sketched icons of tools and gears, 
-            emphasizing the "right stuff" approach
+            <motion.img src="pointy-boy.png" alt="Cartoon sketched person pointing to the text" />
           </motion.div>
         </motion.div>
       </section>
