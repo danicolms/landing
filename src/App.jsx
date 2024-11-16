@@ -58,8 +58,7 @@ function App() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.5 }}
           >
-            Suggested: Hand-drawn lightbulb transforming into digital circuits, 
-            representing the journey from idea to solution
+            <motion.img src="home-illustration.jpeg" alt="Cartoon sketched person pointing to the text" />
           </motion.div>
           
           <motion.div 
