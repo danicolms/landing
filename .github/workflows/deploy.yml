@@ -14,6 +14,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          rm -rf node_modules yarn.json
           yarn install
           yarn build
 
