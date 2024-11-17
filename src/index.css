@@ -41,7 +41,7 @@ body {
 
 .hero-content {
   max-width: 600px;
-  z-index: 2;
+  z-index: 1;
 }
 
 .heading {
@@ -63,7 +63,7 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--color-bg);
-  background-color: var(--color-text);
+  background-color: var(--color-accent);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -74,12 +74,12 @@ body {
   right: -3%;
   top: 5%;
   transform: translateY(-50%);
-  width: 100%;
+  width: 95%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 800px) {
