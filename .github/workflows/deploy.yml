@@ -14,9 +14,8 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          rm -rf node_modules yarn.json
-          yarn install
-          yarn build
+          npm ci
+          npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
