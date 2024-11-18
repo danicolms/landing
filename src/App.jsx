@@ -1,69 +1,8 @@
-import { motion } from 'framer-motion';
-import './index.css';
+import Home from './Home';
 
-function App() {
+export default function App() {
   return (
-    <div className="container">
-      <section className="hero">
-        <motion.div 
-          className="hero-content"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-          <motion.h1 
-            className="heading"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-          >
-            Turn your ideas into powerful digital solutions
-          </motion.h1>
-          
-          <motion.p 
-            className="subheading"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-          >
-            No corporate fluff, just the right stuff
-          </motion.p>
-          
-          <motion.button 
-            className="cta-button"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ 
-              scale: 1.03,
-              transition: { duration: 0.3, ease: "easeOut" }
-            }}
-            whileTap={{ 
-              scale: 0.97,
-              transition: { duration: 0.1 }
-            }}
-            transition={{ duration: 1.2, delay: 0.9, ease: "easeOut" }}
-          >
-            Let's talk!
-          </motion.button>
-        </motion.div>
-
-        <motion.div 
-          className="illustrations-container"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, delay: 1.2, ease: "easeOut" }}
-        >
-          <motion.div 
-            className="illustration"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.img src="pointy-boy.png" alt="Cartoon sketched person pointing to the text" />
-          </motion.div>
-        </motion.div>
-      </section>
-    </div>
+    <Home />
   );
 }
 
-export default App;

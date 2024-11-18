@@ -14,10 +14,10 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          npm i
-          npm run build
+          yarn install
+          yarn build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # The folder the action should deploy.
+          folder: dist
