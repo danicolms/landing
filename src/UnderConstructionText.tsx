@@ -6,9 +6,6 @@ interface WordConfig {
   fontFamily: string;
   fontSize: number;
   color: string;
-  letterSpacing?: number;
-  backgroundColor?: string;
-  fontStyle?: string;
 }
 
 interface UnderConstructionTextProps {
@@ -24,10 +21,9 @@ function UnderConstructionText({ isPortrait, windowSize, spaceBetweenWords }: Un
       fontFamily: "Montserrat",
       fontSize: 70,
       color: "#FF5733",
-      fontStyle: "bold"
     },
     {
-      text: "Revelation", 
+      text: "Revelation",
       fontFamily: "Fascinate",
       fontSize: 50,
       color: "#C70039"
@@ -42,53 +38,41 @@ function UnderConstructionText({ isPortrait, windowSize, spaceBetweenWords }: Un
       text: "CONSTRUCTION",
       fontFamily: "Montserrat",
       fontSize: 40,
-      color: "#000000",
-      letterSpacing: 2,
-      backgroundColor: "#FFC300"
+      color: "#000000"
     }
   ];
 
   let positions = [];
 
   if (isPortrait) {
-    let yPosition = windowSize.height / (words.length + 1);
+    let yPosition = (windowSize.height / 2) / (words.length + 1);
     positions = words.map((word, index) => ({
-      xPosition: (windowSize.width - word.fontSize * word.text.length) / 2,
-      yPosition: yPosition * (index + 1)
+      xPosition: 0,
+      yPosition: yPosition * index
     }));
   } else {
     positions = [
       { xPosition: (windowSize.width / 4) - (words[0].fontSize * words[0].text.length / 2), yPosition: windowSize.height / 3 },
       { xPosition: (windowSize.width / 4) + (words[0].fontSize * words[0].text.length + spaceBetweenWords), yPosition: windowSize.height / 3 },
       { xPosition: (windowSize.width / 4) - (words[2].fontSize * words[2].text.length / 2), yPosition: (windowSize.height / 3) + words[0].fontSize + spaceBetweenWords },
-      { xPosition: (windowSize.width / 4) - (words[3].fontSize * words[3].text.length /2), yPosition: (windowSize.height / 3) + words[0].fontSize * 2 + spaceBetweenWords * 2 }
+      { xPosition: (windowSize.width / 4) - (words[3].fontSize * words[3].text.length / 2), yPosition: (windowSize.height / 3) + words[0].fontSize * 2 + spaceBetweenWords * 2 }
     ];
   }
 
   return (
     <Layer>
       {words.map((word, index) => (
-        <React.Fragment key={index}>
-          {word.backgroundColor && (
-            <Rect
-              x={positions[index].xPosition}
-              y={positions[index].yPosition - word.fontSize / 4}
-              width={word.fontSize * word.text.length}
-              height={word.fontSize * 1.5}
-              fill={word.backgroundColor}
-            />
-          )}
-          <Text
-            text={word.text}
-            fontFamily={word.fontFamily}
-            fontSize={word.fontSize}
-            x={positions[index].xPosition}
-            y={positions[index].yPosition}
-            fill={word.color}
-            letterSpacing={word.letterSpacing || 0}
-            fontStyle={word.fontStyle || 'normal'}
-          />
-        </React.Fragment>
+
+        <Text
+          key={word.text + index}
+          text={word.text}
+          fontFamily={word.fontFamily}
+          fontSize={word.fontSize}
+          x={positions[index].xPosition}
+          y={positions[index].yPosition}
+          fill={word.color}
+        />
+
       ))}
     </Layer>
   );
