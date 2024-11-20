@@ -21,6 +21,7 @@
     "@rollup/rollup-linux-x64-gnu": "*"
   },
   "scripts": {
+    "start": "yarn install && yarn dev",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

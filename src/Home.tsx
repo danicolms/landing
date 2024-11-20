@@ -5,10 +5,15 @@ import UnderConstructionText from './UnderConstructionText';
 
 function Home(): JSX.Element {
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  const [isPortrait, setIsPortrait] = useState(window.innerWidth < window.innerHeight);
 
+  // Update window size and orientation on resize
   useEffect(() => {
     const handleResize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setWindowSize({ width, height });
+      setIsPortrait(width < height); // Check if it's portrait
     };
     window.addEventListener('resize', handleResize);
     return () => {
@@ -17,16 +22,14 @@ function Home(): JSX.Element {
   }, []);
 
   const spaceBetweenWords = 20;
-  const startX = (windowSize.width - (4 - 1) * (70 + spaceBetweenWords)) / 2;
-  const positionY = windowSize.height / 2;
 
   return (
     <div>
       <Stage width={windowSize.width} height={windowSize.height}>
-        <UnderConstructionText
-          startX={startX}
-          positionY={positionY}
-          spaceBetweenWords={spaceBetweenWords}
+        <UnderConstructionText 
+          isPortrait={isPortrait} 
+          windowSize={windowSize} 
+          spaceBetweenWords={spaceBetweenWords} 
         />
       </Stage>
     </div>
