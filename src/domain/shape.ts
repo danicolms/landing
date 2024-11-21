@@ -2,7 +2,7 @@ import { ColumnSize } from "./grid";
 import { Slot } from "./slot";
 
 
-type ShapeData = {
+export type ShapeData = {
     type: string 
 }
 

@@ -9,7 +9,7 @@ export enum ColumnSize {
 
 
 
-export default class Grid  {
+export default class Grid {
     shapes: Shape[] = []
     columnSize: ColumnSize
 
@@ -17,11 +17,11 @@ export default class Grid  {
         this.columnSize = columnSize
     }
 
-    addShape(shape: Shape) {
-        this.shapes.push(shape)
+    addShapes(shapes: Shape[]): void {
+        this.shapes = [...this.shapes, ...shapes]
     }
 
-    compute() {
+    compute(): Shape[] {
         return this.shapes
     }
 
