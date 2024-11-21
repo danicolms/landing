@@ -11,11 +11,11 @@ export default function App(): JSX.Element {
 
   const computedGrid = grid.compute()
 
-  const adapter = new ShapeAdapter(computedGrid) 
-  const Stage = adapter.toKonvaStage()
+  const adapter = new ShapeAdapter(computedGrid)
+  const stage = adapter.toKonvaStage()
 
   return (
-    <Stage />
+    <> {stage}</>
   );
 }
 

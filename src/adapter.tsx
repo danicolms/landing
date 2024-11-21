@@ -1,15 +1,26 @@
-import { Stage } from "react-konva";
-import Grid from "./domain/grid";
-import { ReactElement } from "react";
-import { Shape } from "./domain/shape";
+import { Stage, Layer } from "react-konva";
+import { Shape, ShapeData } from "./domain/shape";
+import { KonvaStrategyContext, KonvaTextStrategy } from "./konva/strategy";
 
 export default class ShapeAdapter {
-    shapes: Shape[]
-    constructor(from: Shape[]) {
+    shapes: Shape<ShapeData>[]
+    constructor(from: Shape<ShapeData>[]) {
         this.shapes = from
     }
 
-    toKonvaStage(): typeof Stage {
-        return Stage 
+    toKonvaStage(): JSX.Element {
+        const konvaStrategy = new KonvaStrategyContext()
+        const shapes: JSX.Element[] = this.shapes.map((shape) => {
+            switch (shape.data.type) {
+                case "text": {
+                    konvaStrategy.setStrategy(new KonvaTextStrategy())
+                }
+            }
+
+
+            return konvaStrategy.render(shape)
+        })
+
+        return <Stage width={window.innerWidth} height={window.innerHeight}><Layer>{shapes}</Layer> </Stage>
     }
 }

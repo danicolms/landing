@@ -6,17 +6,15 @@ export type ShapeData = {
     type: string 
 }
 
-// NOTE: Must use interface to extend the ShapeData,
-// would have loved to use type for consistency.
-export interface TextData extends ShapeData {
+export type TextData = ShapeData & {
     type: "text",
     text: string,
     fontSize: number
 }
 
 
-export type Shape = {
+export type Shape<DataType extends ShapeData>  = {
     slots: Slot | Record<ColumnSize, Slot>
-    data: ShapeData
+    data: DataType
 }
 
