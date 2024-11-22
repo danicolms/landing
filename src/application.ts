@@ -3,7 +3,7 @@ import { Slot } from './domain/slot';
 
 export default function createHeadlineShape(): Shape<TextData> {
 
-  const headlineSlot: Slot = { from: { x: 1, y: 1 }, to: { x: 2, y: 2 } }
+  const headlineSlot: Slot = { from: { x: 0, y: 2 }, to: { x: 2, y: 2 } }
 
   const headlineData: TextData = {
     type: "text",
