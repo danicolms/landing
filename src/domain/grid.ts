@@ -1,5 +1,4 @@
-import { Shape } from "./shape"
-
+import { Shape, ShapeData } from "./shape"
 
 export enum ColumnSize {
     "S",
@@ -7,23 +6,19 @@ export enum ColumnSize {
     "L",
 }
 
-
-
 export default class Grid {
-    shapes: Shape[] = []
+    shapes: Shape<ShapeData>[] = []
     columnSize: ColumnSize
 
     constructor(columnSize: ColumnSize) {
         this.columnSize = columnSize
     }
 
-    addShapes(shapes: Shape[]): void {
+    addShapes(shapes: Shape<ShapeData>[]): void {
         this.shapes = [...this.shapes, ...shapes]
     }
 
-    compute(): Shape[] {
-        return this.shapes
+    filterOverflownShapes(): void {
+
     }
-
-
 }

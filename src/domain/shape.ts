@@ -1,9 +1,8 @@
 import { ColumnSize } from "./grid";
-import { Slot } from "./slot";
-
+import { Slot, SlotDictionary } from "./slot";
 
 export type ShapeData = {
-    type: string 
+    type: string
 }
 
 export type TextData = ShapeData & {
@@ -12,9 +11,8 @@ export type TextData = ShapeData & {
     fontSize: number
 }
 
-
-export type Shape<DataType extends ShapeData>  = {
-    slots: Slot | Record<ColumnSize, Slot>
+export type Shape<DataType extends ShapeData> = {
+    slots: Slot
     data: DataType
 }
 
