@@ -11,6 +11,8 @@ export default class ShapeAdapter {
     toKonvaStage(): JSX.Element {
         const konvaStrategy = new KonvaStrategyContext()
         const shapes: JSX.Element[] = this.shapes.map((shape) => {
+            console.log(shape);
+            
             switch (shape.data.type) {
                 case "text": {
                     konvaStrategy.setStrategy(new KonvaTextStrategy())
