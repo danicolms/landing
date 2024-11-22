@@ -1,6 +1,7 @@
 import { Stage, Layer } from "react-konva";
 import { Shape, ShapeData } from "./domain/shape";
 import { KonvaStrategyContext, KonvaTextStrategy } from "./konva/strategy";
+import { Fragment } from "react";
 
 export default class ShapeAdapter {
     shapes: Shape<ShapeData>[]
@@ -9,21 +10,27 @@ export default class ShapeAdapter {
     }
 
     toKonvaStage(): JSX.Element {
-        const konvaStrategy = new KonvaStrategyContext()
-        const shapes: JSX.Element[] = this.shapes.map((shape) => {
-           
-            
-            switch (shape.data.type) {
-                case "text": {
-                    konvaStrategy.setStrategy(new KonvaTextStrategy())
+        const konvaStrategy = new KonvaStrategyContext();
+    
+        return (
+          <Stage width={window.innerWidth} height={window.innerHeight}>
+            <Layer>
+              {this.shapes.map((shape, index) => {
+                switch (shape.data.type) {
+                  case "text": {
+                    konvaStrategy.setStrategy(new KonvaTextStrategy());
+                    break;
+                  }
+                  default: {
+                    throw new Error(`Unsupported shape type: ${shape.data.type}`);
+                  }
                 }
-            }
-
-
-            return konvaStrategy.render(shape)
-        })
-console.log(JSON.stringify(shapes));
-
-        return <Stage width={window.innerWidth} height={window.innerHeight}><Layer>{shapes}</Layer> </Stage>
-    }
+    
+                // Render the shape directly
+                return <Fragment key={index}>{konvaStrategy.render(shape)}</Fragment>;
+              })}
+            </Layer>
+          </Stage>
+        );
+      }
 }
