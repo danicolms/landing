@@ -9,6 +9,7 @@ interface KonvaElementStrategy {
 export class KonvaTextStrategy implements KonvaElementStrategy {
     render(shape: Shape<TextData>): JSX.Element {
         const { fontSize, text } = shape.data
+        console.log(text);
         return <KonvaText text={text} fontSize={fontSize} x={0} y={0} fill="black"/>
     }
 }
