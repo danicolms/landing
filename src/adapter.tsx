@@ -22,6 +22,7 @@ export default class ShapeAdapter {
 
             return konvaStrategy.render(shape)
         })
+console.log(JSON.stringify(shapes));
 
         return <Stage width={window.innerWidth} height={window.innerHeight}><Layer>{shapes}</Layer> </Stage>
     }
