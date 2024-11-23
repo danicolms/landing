@@ -16,7 +16,8 @@ export default class GridAdapter {
   toKonvaStage(): JSX.Element {
     const gridSlotSize = window.innerWidth / this.columnsSize
     const konvaStrategy = new KonvaStrategyContext(gridSlotSize);
-
+  console.log(window.innerWidth, this.columnsSize );
+  
     return (
       <Stage width={window.innerWidth} height={window.innerHeight}>
         <Layer>
