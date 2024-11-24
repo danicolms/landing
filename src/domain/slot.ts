@@ -1,5 +1,3 @@
-import { ColumnSize } from "./grid"
-
 type Coordinate = {
     x: number
     y: number

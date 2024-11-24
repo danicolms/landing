@@ -1,9 +1,9 @@
 import { Shape, ShapeData } from "./shape"
 
 export enum ColumnSize {
-    "S",
-    "M",
-    "L",
+    S = 6,
+    M = 8,
+    L = 12
 }
 
 export default class Grid {
