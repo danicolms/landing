@@ -1,5 +1,6 @@
 import { Text as KonvaText } from "react-konva";
 import { Shape, ShapeData, TextData } from "../../domain/shape";
+import { Slot } from "../../domain/slot";
 
 interface KonvaElementStrategy {
   render(shape: Shape<ShapeData>, gridSlotSize: number): JSX.Element;
@@ -8,7 +9,11 @@ interface KonvaElementStrategy {
 export class KonvaTextStrategy implements KonvaElementStrategy {
   render(shape: Shape<TextData>, slotSize: number): JSX.Element {
     const { fontSize, text, color } = shape.data;
-    const { from, to } = shape.slots;
+
+    // NOTE: Since we filter all the other slots
+    // on the grid filter function, this will always be type Slot.
+    const { from, to } = shape.slots as Slot
+
     return (
       <KonvaText
         text={text}

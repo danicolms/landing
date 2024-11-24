@@ -1,12 +1,14 @@
+import { ColumnSize } from "./domain/grid";
 import { Shape, TextData } from "./domain/shape";
 import { Slot } from "./domain/slot";
 
 export default function createHeadlineShape(): Shape<TextData> {
   
-  const headlineSlot: Slot = {
+  const headlineSlots: Slot[] = [{
+    columnsSize: ColumnSize.L,
     from: { x: 0, y: 0 },
     to: { x: 2, y: 2 },
-  };
+  }]
 
   const headlineData: TextData = {
     type: "text",
@@ -16,7 +18,7 @@ export default function createHeadlineShape(): Shape<TextData> {
   };
 
   const headlineShape: Shape<TextData> = {
-    slots: headlineSlot,
+    slots: headlineSlots,
     data: headlineData,
   };
 

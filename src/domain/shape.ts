@@ -12,7 +12,7 @@ export type TextData = ShapeData & {
 }
 
 export type Shape<DataType extends ShapeData> = {
-    slots: Slot
+    slots: Slot | Slot[]
     data: DataType
 }
 
