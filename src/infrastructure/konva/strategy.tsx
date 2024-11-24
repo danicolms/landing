@@ -1,6 +1,5 @@
 import { Text as KonvaText } from "react-konva";
 import { Shape, ShapeData, TextData } from "../../domain/shape";
-import { ColumnSize } from "../../domain/grid";
 
 interface KonvaElementStrategy {
     render(shape: Shape<ShapeData>, gridSlotSize: number): JSX.Element
@@ -8,9 +7,9 @@ interface KonvaElementStrategy {
 
 export class KonvaTextStrategy implements KonvaElementStrategy {
     render(shape: Shape<TextData>, slotSize: number): JSX.Element {
-        const { fontSize, text } = shape.data
-    
-        return <KonvaText text={text} fontSize={fontSize} x={shape.slots.from.x * slotSize} y={shape.slots.from.y * slotSize} fill="black" />
+        const { fontSize, text, color } = shape.data
+        const { from, to } = shape.slots
+        return <KonvaText text={text} fontSize={fontSize} x={from.x * slotSize} y={from.y * slotSize} width={(to.x - from.x) * slotSize} height={(to.y - from.y) * slotSize} fill={color} />
     }
 }
 
