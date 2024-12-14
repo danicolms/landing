@@ -14,8 +14,8 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          yarn install --optional @rollup/rollup-linux-x64-gnu
           yarn install
+          yarn install --optional @rollup/rollup-linux-x64-gnu:*
           yarn build
 
       - name: Deploy 🚀
